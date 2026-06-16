@@ -4,7 +4,7 @@ import { getProducts } from "../service/productService";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 import StatsCards from "../components/StatsCards";
-
+import "./ProductDashboard.css";
 
 function ProductDashboard() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -22,11 +22,16 @@ function ProductDashboard() {
   const filteredProducts = products.filter(
     (product) =>
       searchTerm.trim() === "" ||
-      product.title.toLowerCase() === searchTerm.toLowerCase()
+      product.category.toLowerCase() === searchTerm.toLowerCase()
   );
 
   return (
-    <>
+    <div className="main-container">
+      <div className="profile">
+        <h1>Product Dashboard</h1>
+        <img src="https://via.placeholder.com/120" alt="Photo"></img>
+      </div>
+
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -42,7 +47,7 @@ function ProductDashboard() {
           />
         ))}
       </div>
-    </>
+    </div>
 
   );
 }
