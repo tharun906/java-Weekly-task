@@ -1,4 +1,5 @@
 import type { Product } from "../types/Product";
+import "./StatusCards.css";
 
 interface StatsCardsProps {
   products: Product[];
@@ -20,25 +21,26 @@ function StatsCards({ products }: StatsCardsProps) {
   ).size;
 
   return (
-    <div>
-      <div>
-        <h3>{averageRating.toFixed(1)}</h3>
-        <p>Avg Rating</p>
+    <div className="stats-cards">
+      <div className="stats-card">
+        <p className="stats-card-title">Total Products</p>
+        <h2>{totalProducts}</h2>
       </div>
 
-      <div>
-        <h3>${averagePrice.toFixed(2)}</h3>
-        <p>Avg Price</p>
+
+      <div className="stats-card">
+        <p className="stats-card-title">Total Categories</p>
+        <h2>{totalCategories}</h2>
       </div>
 
-      <div>
-        <h3>{totalCategories}</h3>
-        <p>Categories</p>
+      <div className="stats-card">
+        <p className="stats-card-title">Avg Price</p>
+        <h2>${averagePrice.toFixed(2)}</h2>
       </div>
 
-      <div>
-        <h3>{totalProducts}</h3>
-        <p>Total Products</p>
+      <div className="stats-card">
+        <p className="stats-card-title">Avg Rating</p>
+        <h2>{averageRating.toFixed(1)}</h2>
       </div>
     </div>
   );

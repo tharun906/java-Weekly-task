@@ -28,7 +28,7 @@ function ProductDashboard() {
   return (
     <div className="main-container">
       <div className="profile">
-        <h1>Product Dashboard</h1>
+        <h1>Catalogue Dashboard</h1>
         <img src="https://via.placeholder.com/120" alt="Photo"></img>
       </div>
 
@@ -39,7 +39,7 @@ function ProductDashboard() {
 
       <StatsCards products={filteredProducts} />
 
-      <div>
+      <div className="product-grid">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}
