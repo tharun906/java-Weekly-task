@@ -5,10 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.employee_task.entity.Product;
 import com.example.employee_task.repository.ProductRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
 
     @Autowired

@@ -12,10 +12,6 @@ function StatsCards({ products }: StatsCardsProps) {
     products.reduce((sum, product) => sum + product.price, 0) /
       products.length || 0;
 
-  const averageRating =
-    products.reduce((sum, product) => sum + product.rating.rate, 0) /
-      products.length || 0;
-
   const totalCategories = new Set(
     products.map((product) => product.category)
   ).size;
@@ -38,10 +34,6 @@ function StatsCards({ products }: StatsCardsProps) {
         <h2>${averagePrice.toFixed(2)}</h2>
       </div>
 
-      <div className="stats-card">
-        <p className="stats-card-title">Avg Rating</p>
-        <h2>{averageRating.toFixed(1)}</h2>
-      </div>
     </div>
   );
 }

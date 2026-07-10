@@ -1,11 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductDashboard from "./pages/ProductDashboard";
+import LoginPage from "./components/LoginPage";
 
-import ProductDashboard from '../src/pages/ProductDashboard';
 function App() {
-  return <ProductDashboard />
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/dashboard" element={<ProductDashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
-
 
 // src/
 // │

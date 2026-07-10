@@ -28,7 +28,6 @@ const handleAddToCart = (product: Product) => {
                 <div className="product-card-footer">
                     <div>
                         <p className="price-font">${product.price}</p>
-                        <p className="rating-font">Rating: {product.rating.rate} ({product.rating.count})</p>
                     </div>
                     <div className="view-button-div" onClick={() => handleAddToCart(product)}>Add TO Cart</div>
                 </div>

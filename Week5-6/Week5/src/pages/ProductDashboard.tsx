@@ -5,10 +5,17 @@ import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 import StatsCards from "../components/StatsCards";
 import "./ProductDashboard.css";
+import { useNavigate } from "react-router-dom";
 
 function ProductDashboard() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  localStorage.removeItem("username");
+  navigate("/");
+};
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,9 +35,18 @@ function ProductDashboard() {
   return (
     <div className="main-container">
       <div className="profile">
-        <h1>Catalogue Dashboard</h1>
-        <img src="https://via.placeholder.com/120" alt="Photo"></img>
-      </div>
+  <h1>Catalogue Dashboard</h1>
+
+  <div className="profile-right">
+      <span className="welcome-user">
+        Welcome, {localStorage.getItem("username")}
+      </span>
+
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
+    </div>
+  </div>
 
       <SearchBar
         searchTerm={searchTerm}

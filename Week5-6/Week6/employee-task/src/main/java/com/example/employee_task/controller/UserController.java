@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.*;
 import com.example.employee_task.entity.User;
 import com.example.employee_task.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
     @Autowired
@@ -26,10 +28,10 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<String> loginUser(@RequestBody User user) {
         User existingUser = userRepository.findByUsername(user.getUsername());
-        if (existingUser != null && passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
+        if (existingUser != null &&
+            passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
             return ResponseEntity.ok("User logged in successfully");
         }
         return ResponseEntity.status(401).body("Invalid username or password");
-        return ResponseEntity.ok("User logged in successfully");
     }
 }

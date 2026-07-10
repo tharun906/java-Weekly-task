@@ -1,0 +1,28 @@
+# Ignore build artifacts
+*.class
+*.jar
+*.war
+
+# Ignore source control
+.git
+.gitignore
+
+# Ignore local config files
+.env
+*.log
+
+# Ignore node modules
+node_modules/
+
+# Ignore temporary files
+tmp/
+*.tmp
+*.bak
+*.swp
+
+.idea/
+.vscode/
+
+# Ignore documentation
+README.md
+docs/
